@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
-import Formik from './Components/Formik/Formik';
+// import Formik from './Components/Formik/Formik';
+import FormWithYup from './Components/Yup/FormWithYup';
 
 function App() {
   return (
     <div className="App">
       <h2>Login</h2>
-      <Formik />
+      {/* <Formik /> */}
+      < FormWithYup />
     </div>
   );
 }

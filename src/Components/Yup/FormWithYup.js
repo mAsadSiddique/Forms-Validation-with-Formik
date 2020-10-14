@@ -1,5 +1,6 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import * as yup from 'yup';
 
 function Formik() {
 
@@ -12,14 +13,15 @@ function Formik() {
             console.log(values);
 
         },
-        validate: (values) => {
-            let error = {}
-            if (!values.email)
-                error.email = "Email is Required *"
-            if (!values.password)
-                error.password = "password is Required *"
-            return error;
-        }
+        validationSchema: yup.object({
+            email: yup.string().email().required('This field is required *'),
+            password: yup.string().min(6, 'Password is too short')
+                .max(20, 'Password is too long')
+                .required('This field is required *')
+
+
+        })
+
     })
 
 
