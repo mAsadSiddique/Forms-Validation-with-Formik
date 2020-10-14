@@ -10,6 +10,15 @@ function Formik() {
         },
         onSubmit: (values) => {
             console.log(values);
+
+        },
+        validate: (values) => {
+            let error = {}
+            if (!values.email)
+                error.email = "Email is Required !"
+            if (!values.password)
+                error.password = "password is Required !"
+            return error;
         }
     })
 
@@ -18,6 +27,8 @@ function Formik() {
         <div>
             <form onSubmit={formik.handleSubmit}>
                 <label>
+                    {formik.errors.email ? <>{formik.errors.email}</> : ""}
+                    <br />
                     User Name
                     <input
                         type="email"
@@ -29,6 +40,8 @@ function Formik() {
                 <br />
                 <br />
                 <label>
+                    {formik.errors.password ? <>{formik.errors.password}</> : ""}
+                    <br />
                     password
                     <input
                         type="password"
