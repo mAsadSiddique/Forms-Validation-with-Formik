@@ -6,7 +6,7 @@ import FormWithYup from './Components/Yup/FormWithYup';
 function App() {
   return (
     <div className="App">
-      <h2>Login</h2>
+      <h2>Login Updated</h2>
       {/* <Formik /> */}
       < FormWithYup />
     </div>
